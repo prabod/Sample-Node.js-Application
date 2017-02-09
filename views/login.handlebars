@@ -1,0 +1,27 @@
+<div class="page-header">
+    <section class="container">
+        <div class="login">
+            <h1>Login to Sample Node.js Web App</h1>
+            {{#if message.length }}
+                <div class="alert alert-danger">{{message}}</div>
+            {{/if}}
+            <form method="post" action="/login">
+                <p><input type="text" name="email" value="" placeholder="Email"></p>
+                <p><input type="password" name="password" value="" placeholder="Password"></p>
+                <p class="remember_me">
+                    <label>
+                        <input type="checkbox" name="remember_me" id="remember_me">
+                        Remember me on this computer
+                    </label>
+                </p>
+                <p class="submit"><input type="submit" name="commit" value="Login"></p>
+            </form>
+        </div>
+
+        <div class="login-help">
+            <p>Forgot your password? <a href="">Click here to reset it</a>.</p>
+        </div>
+    </section>
+
+
+</div>
