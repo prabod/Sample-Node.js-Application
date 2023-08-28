@@ -1,0 +1,27 @@
+name: Deploy Preview to Vercel
+
+on:
+  push:
+    branches:
+      - main # Change this to the branch you want to deploy from
+
+jobs:
+  build-and-deploy-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14 # Change this to the desired Node.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy preview to Vercel
+        run: npx vercel --token ${{ secrets.VERCEL_TOKEN }} --edge --build-env VERCEL_ENV=preview
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }} # Create this secret in your GitHub repository settings
