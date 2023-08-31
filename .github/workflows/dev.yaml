@@ -1,0 +1,28 @@
+name: Node.js App CI/CD
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14  # Change this to your desired Node.js version
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build  # Change this to your build command if applicable
+
+      - name: Run Tests
+        run: npm test  # Change this to your test command if applicable
